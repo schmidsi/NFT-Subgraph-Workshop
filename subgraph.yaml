@@ -8,6 +8,7 @@ dataSources:
     source:
       address: "0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC"
       abi: CeloPOAP
+      startBlock: 11953380
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
