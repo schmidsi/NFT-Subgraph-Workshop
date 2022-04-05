@@ -32,6 +32,13 @@ graph init \
 ```
 
 - Inspect the source
+- Change startblock:
+```
+source:
+    address: "0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC"
+    abi: CeloPOAP
+    startBlock: 11953380
+```
 – Create new subgraph on [The Graph Hosted Service](https://thegraph.com/hosted-service/) named "Celo POAP Subgraph"
 - `graph auth --product hosted-service ...`
 - `yarn deploy`
