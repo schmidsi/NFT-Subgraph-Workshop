@@ -5,26 +5,28 @@ type Transfer @entity(immutable: true) {
   token: Token!
   timestamp: BigInt!
   blockNumber: BigInt!
+  transactionHash: Bytes!
 }
 
 type Token @entity {
   id: ID!
-  owner: Owner
+  owner: Owner!
   uri: String
+  number: BigInt!
   transfers: [Transfer!]! @derivedFrom(field: "token")
-  contract: Contract
+  contract: Contract!
 }
 
 type Owner @entity {
-  id: Bytes! # Use bytes as ID
+  id: ID!
   ownedTokens: [Token!]! @derivedFrom(field: "owner")
-  balance: BigInt
+  balance: BigInt!
 }
 
 type Contract @entity {
-  id: ID!
+  id: Bytes!
   name: String
   symbol: String
-  totalSupply: BigInt
+  totalSupply: BigInt!
   mintedTokens: [Token!]! @derivedFrom(field: "contract")
 }
