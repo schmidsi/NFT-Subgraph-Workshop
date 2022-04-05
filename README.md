@@ -1,10 +1,10 @@
+# NFT Subgraph on Celo POAP contracts
+
 ![Top Slide](./slide.jpg)
 
-- Contract to index: https://explorer.celo.org/token/0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC/token-transfers
+- [Contract to index](https://explorer.celo.org/token/0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC/token-transfers)
 - [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1v34HTuHp9mcGPuiy3FifujhgGgFbEWvEuHfFLj6HOSo/edit?usp=sharing)
-- Questions: https://twitter.com/schmid_si
-
-# NFT Subgraph on Celo POAP contracts
+- Questions: **[twitter.com/schmid_si](https://twitter.com/schmid_si)**
 
 ## Prerequisites
 
