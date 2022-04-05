@@ -2,6 +2,7 @@
 
 - Contract to index: https://explorer.celo.org/token/0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC/token-transfers
 - [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1v34HTuHp9mcGPuiy3FifujhgGgFbEWvEuHfFLj6HOSo/edit?usp=sharing)
+- Questions: https://twitter.com/schmid_si
 
 # NFT Subgraph on Celo POAP contracts
 
@@ -64,6 +65,76 @@ type Transfer @entity {
       file: ./src/mapping.ts
 
 ```
+
+### Extend events
+
+Make them immutable for performance improvements
+
+```graphql
+type Transfer @entity(immutable: true) {
+  id: ID!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt! # uint256
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+```
+
+Use `event.transaction.hash.toHex() + "-" + event.logIndex.toString()` as the id for events
+```typescript
+export function handleTransfer(event: TransferEvent): void {
+  let entity = new Transfer(
+    event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+  )
+  entity.blockNumber = event.block.number;
+  entity.timestamp = event.block.timestamp;
+  entity.from = event.params.from
+  entity.to = event.params.to
+  entity.tokenId = event.params.tokenId
+  entity.save()
+}
+```
+
+### Store logical entities
+
+- Identify the important entities: Token, Owner, Contract
+- Link them
+
+```graphql
+type Transfer @entity(immutable: true) {
+  id: ID!
+  from: Owner!
+  to: Owner!
+  token: Token!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+
+type Token @entity {
+  id: ID!
+  owner: Owner
+  uri: String
+  transfers: [Transfer!]! @derivedFrom(field: "token")
+  contract: Contract
+}
+
+type Owner @entity {
+  id: Bytes! # Use bytes as ID
+  ownedTokens: [Token!]! @derivedFrom(field: "owner")
+  balance: BigInt
+}
+
+type Contract @entity {
+  id: ID!
+  name: String
+  symbol: String
+  totalSupply: BigInt
+  mintedTokens: [Token!]! @derivedFrom(field: "contract")
+}
+```
+
+
 
 
 ## Other resources
