@@ -20,7 +20,7 @@
 - Run this command to initialise the subgraph with events:
 
 ```bash
-graph init 
+graph init \
     --product hosted-service \
     --protocol ethereum \
     --from-contract 0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC \
