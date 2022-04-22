@@ -1,9 +1,9 @@
-# NFT Subgraph on Celo POAP contracts
+# NFT Subgraph Workshop at Eth Amsterdam
 
 ![Top Slide](./slide.jpg)
 
-- [Contract to index](https://explorer.celo.org/token/0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC/token-transfers)
-- [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1v34HTuHp9mcGPuiy3FifujhgGgFbEWvEuHfFLj6HOSo/edit?usp=sharing)
+- [Contract to index](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
+- [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1YD4-AdttpNgO3wlgd_RnoimM8lbPCz88ZsZW4x-KIHg/edit?usp=sharing)
 - Questions: **[twitter.com/schmid_si](https://twitter.com/schmid_si)**
 
 ## Prerequisites
@@ -12,35 +12,35 @@
 
 ## First Steps
 
-- [Find the contract on Celo Block Explorer](https://explorer.celo.org/token/0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC/token-transfers)
-- [Find the contract creation transaction for startBlock](https://explorer.celo.org/tx/0xd0bc372be9ea48fb569116493f639df8a9fcc8a19419aa57b1c6ef76ea7ad1fd/internal-transactions)
-- Get a generic ERC721 ABI
+- [Find the contract on Celo Block Explorer](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
+- [Find the contract creation transaction for startBlock](https://etherscan.io/tx/0xe9e60dc12e1a7bc545aa497bc494f5f54ce81da06de4f6fef50459816218e66b)
+- Download the ABI
 
 
 - Run this command to initialise the subgraph with events:
 
 ```bash
 graph init \
-    --product hosted-service \
+    --studio \
     --protocol ethereum \
-    --from-contract 0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC \
+    --from-contract 0xc2c747e0f7004f9e8817db2ca4997657a7746928 \
     --index-events \
-    --contract-name CeloPOAP \
-    --network celo \
+    --contract-name Hashmasks \
+    --network mainnet \
     --abi ./abis/ERC721.json \
-    schmidsi/celo-poap-subgraph celo-poap-subgraph
+    hashmasks hashmasks-subgraph
 ```
 
 - Inspect the source
 - Change startblock:
 ```
 source:
-    address: "0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC"
-    abi: CeloPOAP
-    startBlock: 11953380
+    address: "0xc2c747e0f7004f9e8817db2ca4997657a7746928"
+    abi: Hashmasks
+    startBlock: 11743743
 ```
-– Create new subgraph on [The Graph Hosted Service](https://thegraph.com/hosted-service/) named "Celo POAP Subgraph"
-- `graph auth --product hosted-service ...`
+– Create new subgraph on [Subgraph Studio](https://thegraph.com/studio/) named "Hashmasks"
+- `graph auth --studio ...`
 - `yarn deploy`
 
 ## Remove unused Entities and Events
@@ -53,24 +53,6 @@ type Transfer @entity {
   to: Bytes! # address
   tokenId: BigInt! # uint256
 }
-```
-
-```yaml
-# subgraph.yaml
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      entities:
-        - Transfer
-      abis:
-        - name: CeloPOAP
-          file: ./abis/CeloPOAP.json
-      eventHandlers:
-        - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleTransfer
-      file: ./src/mapping.ts
-
 ```
 
 ### Extend events
