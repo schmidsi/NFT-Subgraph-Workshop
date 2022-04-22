@@ -1,6 +1,6 @@
 # NFT Subgraph Workshop at Eth Amsterdam
 
-![Top Slide](./slide.jpg)
+[![Top Slide](./slide2.jpg)](https://docs.google.com/presentation/d/1YD4-AdttpNgO3wlgd_RnoimM8lbPCz88ZsZW4x-KIHg/edit?usp=sharing)
 
 - [Contract to index](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
 - [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1YD4-AdttpNgO3wlgd_RnoimM8lbPCz88ZsZW4x-KIHg/edit?usp=sharing)
