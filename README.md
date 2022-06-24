@@ -3,7 +3,7 @@
 [![Top Slide](./slide2.jpg)](https://docs.google.com/presentation/d/1YD4-AdttpNgO3wlgd_RnoimM8lbPCz88ZsZW4x-KIHg/edit?usp=sharing)
 
 - [Contract to index](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
-- [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1YD4-AdttpNgO3wlgd_RnoimM8lbPCz88ZsZW4x-KIHg/edit?usp=sharing)
+- [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1_bL8dkqo-hnKnBBalKIATmyb7oePce9h8yAk-7vWHAg/edit?usp=sharing)
 - Questions: **[twitter.com/schmid_si](https://twitter.com/schmid_si)**
 
 ## Prerequisites
@@ -12,7 +12,7 @@
 
 ## First Steps
 
-- [Find the contract on Celo Block Explorer](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
+- [Find the contract on Etherscan](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
 - [Find the contract creation transaction for startBlock](https://etherscan.io/tx/0xe9e60dc12e1a7bc545aa497bc494f5f54ce81da06de4f6fef50459816218e66b)
 - Download the ABI
 
@@ -27,7 +27,6 @@ graph init \
     --index-events \
     --contract-name Hashmasks \
     --network mainnet \
-    --abi ./abis/ERC721.json \
     hashmasks hashmasks-subgraph
 ```
 
