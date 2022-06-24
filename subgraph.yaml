@@ -3,12 +3,11 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: CeloPOAP
-    network: celo
+    name: Hashmasks
+    network: mainnet
     source:
-      address: "0xaB12Cd14E43dbc5F7F3f5571B449BFfa14F444cC"
-      abi: CeloPOAP
-      startBlock: 11953380
+      address: "0xc2c747e0f7004f9e8817db2ca4997657a7746928"
+      abi: Hashmasks
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -16,8 +15,8 @@ dataSources:
       entities:
         - Transfer
       abis:
-        - name: CeloPOAP
-          file: ./abis/CeloPOAP.json
+        - name: Hashmasks
+          file: ./abis/Hashmasks.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
