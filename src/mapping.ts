@@ -1,8 +1,8 @@
 import { Address, BigInt } from "@graphprotocol/graph-ts";
 import {
   Transfer as TransferEvent,
-  CeloPOAP,
-} from "../generated/CeloPOAP/CeloPOAP";
+  Hashmasks,
+} from "../generated/Hashmasks/Hashmasks";
 import { Transfer, Owner, Contract, Token } from "../generated/schema";
 
 export function handleTransfer(event: TransferEvent): void {
@@ -17,7 +17,7 @@ export function handleTransfer(event: TransferEvent): void {
   let to = getOrCreateOwner(event.params.to);
   let from = getOrCreateOwner(event.params.from);
   let contract = Contract.load(event.address);
-  let instance = CeloPOAP.bind(event.address);
+  let instance = Hashmasks.bind(event.address);
   let token = Token.load(tokenId);
 
   // Do not go to minus with null-address
@@ -44,10 +44,10 @@ export function handleTransfer(event: TransferEvent): void {
     token = new Token(tokenId);
     token.number = event.params.tokenId;
     token.contract = contract.id;
-    let uri = instance.try_tokenURI(event.params.tokenId);
-    if (!uri.reverted) {
-      token.uri = uri.value;
-    }
+    // let uri = instance.try_tokenURI(event.params.tokenId);
+    // if (!uri.reverted) {
+    //   token.uri = uri.value;
+    // }
     contract.totalSupply = contract.totalSupply.plus(BigInt.fromI32(1));
   }
   
