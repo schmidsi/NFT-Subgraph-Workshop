@@ -3,7 +3,7 @@
 [![Top Slide](./slide.jpg)](https://docs.google.com/presentation/d/1l2VicPQYEHmDDozTc8OXV0fKhr6pMIPHbtj7I2064XY/edit?usp=sharing)
 
 - [Contract to index](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
-- [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1_bL8dkqo-hnKnBBalKIATmyb7oePce9h8yAk-7vWHAg/edit?usp=sharing)
+- [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1l2VicPQYEHmDDozTc8OXV0fKhr6pMIPHbtj7I2064XY/edit?usp=sharing)
 - Questions: **[twitter.com/schmid_si](https://twitter.com/schmid_si)**
 
 ## Prerequisites
@@ -127,6 +127,7 @@ type Contract @entity {
 
 ## Other resources
 
+- https://soulbound.xyz
 - https://github.com/Developer-DAO/resources
 - https://dev.to/dabit3/the-complete-guide-to-full-stack-ethereum-development-3j13
 - https://github.com/itsjerryokolo/CryptoPunks
