@@ -1,9 +1,10 @@
 # NFT Subgraph Workshop
 
-[![Top Slide](./slide.jpg)](https://docs.google.com/presentation/d/1l2VicPQYEHmDDozTc8OXV0fKhr6pMIPHbtj7I2064XY/edit?usp=sharing)
+[![Top Slide](./slide1.jpg)](https://docs.google.com/presentation/d/1-jZd4Sp83YW6r2KhXYeU4sOlKdcmp0LVi3WF1VAkxzk/edit?usp=sharing)
+[![Cheatsheet](./cheatsheet.png)](./cheatsheet_Design_ETH_SF.pdf)
 
 - [Contract to index](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
-- [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1l2VicPQYEHmDDozTc8OXV0fKhr6pMIPHbtj7I2064XY/edit?usp=sharing)
+- [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1-jZd4Sp83YW6r2KhXYeU4sOlKdcmp0LVi3WF1VAkxzk/edit?usp=sharing)
 - Questions: **[twitter.com/schmid_si](https://twitter.com/schmid_si)**
 
 ## Prerequisites
@@ -15,7 +16,6 @@
 - [Find the contract on Etherscan](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
 - [Find the contract creation transaction for startBlock](https://etherscan.io/tx/0xe9e60dc12e1a7bc545aa497bc494f5f54ce81da06de4f6fef50459816218e66b)
 - Download the ABI
-
 
 - Run this command to initialise the subgraph with events:
 
@@ -32,13 +32,16 @@ graph init \
 
 - Inspect the source
 - Change startblock:
+
 ```
 source:
     address: "0xc2c747e0f7004f9e8817db2ca4997657a7746928"
     abi: Hashmasks
     startBlock: 11743743
 ```
+
 – Create new subgraph on [Subgraph Studio](https://thegraph.com/studio/) named "Hashmasks"
+
 - `graph auth --studio ...`
 - `yarn deploy`
 
@@ -70,17 +73,18 @@ type Transfer @entity(immutable: true) {
 ```
 
 Use `event.transaction.hash.toHex() + "-" + event.logIndex.toString()` as the id for events
+
 ```typescript
 export function handleTransfer(event: TransferEvent): void {
   let entity = new Transfer(
     event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  )
+  );
   entity.blockNumber = event.block.number;
   entity.timestamp = event.block.timestamp;
-  entity.from = event.params.from
-  entity.to = event.params.to
-  entity.tokenId = event.params.tokenId
-  entity.save()
+  entity.from = event.params.from;
+  entity.to = event.params.to;
+  entity.tokenId = event.params.tokenId;
+  entity.save();
 }
 ```
 
@@ -122,11 +126,10 @@ type Contract @entity {
 }
 ```
 
-
-
-
 ## Other resources
 
+- https://github.com/schmidsi/hackathon-starterkit
+- https://github.com/scaffold-eth/scaffold-eth#-scaffold-eth
 - https://soulbound.xyz
 - https://github.com/Developer-DAO/resources
 - https://dev.to/dabit3/the-complete-guide-to-full-stack-ethereum-development-3j13
