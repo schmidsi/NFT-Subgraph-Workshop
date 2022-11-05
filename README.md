@@ -8,6 +8,20 @@
 
 [![Cheatsheet](./cheatsheet.png)](./cheatsheet_Design_ETH_SF.pdf)
 
+## Good subgraphs:
+
+- [Messari Subgraphs](https://subgraphs.messari.io)
+- [EIP-721 (NFTS on The Graph Network)](https://thegraph.com/explorer/subgraph?id=AVZ1dGwmRGKsbDAbwvxNmXzeEkD48voB3LfGqj5w7FUS&view=Overview)
+- [Lens Protocol](https://thegraph.com/hosted-service/subgraph/anudit/lens-protocol)
+- [Unlock Protocol on The Graph Network](https://thegraph.com/explorer/subgraph?id=8u7KcVRxjtTDRgEJup3UuPJk6YoRDTHNpSMk5BEpdw42&view=Overview)
+- [Open Sea Subgraph](https://thegraph.com/hosted-service/subgraph/protofire/opensea-wyvern-exchange-subgraph)
+- [LiNEAR](https://thegraph.com/hosted-service/subgraph/linear-protocol/linear)
+- [Aave Gotchi](https://thegraph.com/hosted-service/subgraph/aavegotchi/aavegotchi-core-matic)
+- [Tellor](https://thegraph.com/hosted-service/subgraph/tellor-io/tellorxoraclemainhgraph)
+- [Live Peer](https://thegraph.com/hosted-service/subgraph/livepeer/arbitrum-one)
+- [ENS](https://thegraph.com/hosted-service/subgraph/ensdomains/ens)
+- [UMA on The Graph Network](https://thegraph.com/explorer/subgraph?id=41LCrgtCNBQyDiVVyZEuPxbvkBH9BxxLU3nEZst77V8o&view=Overview)
+
 ## Info
 
 - [Contract to index](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
