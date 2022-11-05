@@ -1,7 +1,14 @@
 # NFT Subgraph Workshop
 
+## Slides
+
 [![Top Slide](./slide1.png)](https://docs.google.com/presentation/d/1-jZd4Sp83YW6r2KhXYeU4sOlKdcmp0LVi3WF1VAkxzk/edit?usp=sharing)
+
+## Cheatsheet
+
 [![Cheatsheet](./cheatsheet.png)](./cheatsheet_Design_ETH_SF.pdf)
+
+## Info
 
 - [Contract to index](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
 - [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1-jZd4Sp83YW6r2KhXYeU4sOlKdcmp0LVi3WF1VAkxzk/edit?usp=sharing)
